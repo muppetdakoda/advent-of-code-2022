@@ -7,15 +7,7 @@ fun main() {
 fun partOne() {
     val lines = readFileAsLines("input.txt")
 
-    var sumOfPrioritiesOfCommonItems = 0
-    lines.forEach { input ->
-        val rucksack = Rucksack(Compartments(input))
-        rucksack.compartments.commonItems.forEach { char ->
-            sumOfPrioritiesOfCommonItems += char.priority
-        }
-    }
-
-    println(sumOfPrioritiesOfCommonItems)
+    println(lines.sumOf { Rucksack(Compartments(it)).compartments.commonItems.sumOf { c -> c.priority } })
 }
 
 fun partTwo() {
