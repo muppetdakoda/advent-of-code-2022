@@ -1,11 +1,8 @@
 fun main() {
     val lines = readFileAsLines("input.txt")
 
-    val pairs = lines.map { line ->
-        Pair(
-            first = Assignment(line.split(",")[0]),
-            second = Assignment(line.split(",")[1]),
-        )
+    val pairs = lines.map { it.split(",") }.map { it[0] to it[1] }.map {
+        Assignment(it.first) to Assignment(it.second)
     }
 
     doOverlaps(pairs)
