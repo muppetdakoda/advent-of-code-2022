@@ -1,3 +1,5 @@
 rootProject.name = "advent-of-code-2022"
 
-include("common", "day-1", "day-2", "day-3", "day-4", "day-5", "day-6")
+val days = (1..25).map { "day-$it" }.toTypedArray()
+
+include("common", *days)
